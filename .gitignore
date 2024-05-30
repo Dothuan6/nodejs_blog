@@ -1,2 +1,3 @@
-.vscode/
+.vscode
+public/css
 node_modules/
