@@ -1,0 +1,67 @@
+<div class="mt-4">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="course-detail-sidebar text-center">
+                <p>
+                    Bạn đã đăng ký khóa học này!!
+                </p>
+                <button class="btn btn-outline text-white bg-puple fw-bold">
+                    HỌC NGAY
+                </button>
+                <ul>
+                    <li class="mt-4">
+                       <i class="fa-solid fa-cookie"></i>
+                        <span class="mx-2">
+                            Trình độ {{course.level}}
+                        </span>
+                    </li>
+                    <li class="mt-2">
+                        <i class="fa-solid fa-battery-three-quarters"></i>
+                        <span class="mx-2">
+                            Truy cập mọi lúc mọi nơi
+                        </span>
+                    </li>
+                    <li class="mt-2">
+                        <i class="fa-solid fa-battery-three-quarters"></i>
+                        <span class="mx-2">
+                            Truy cập mọi lúc mọi nơi
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="course-detail-sidebar mt-4 text-center">
+                <img src="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png" style="border-radius: 100%;" alt="">
+                <ul>
+                    <li class="mt-4">
+                       <i class="fa-solid fa-cookie"></i>
+                        <span class="mx-2">
+                            Trình độ {{course.level}}
+                        </span>
+                    </li>
+                    <li class="mt-2">
+                        <i class="fa-solid fa-battery-three-quarters"></i>
+                        <span class="mx-2">
+                            Truy cập mọi lúc mọi nơi
+                        </span>
+                    </li>
+                    <li class="mt-2">
+                        <i class="fa-solid fa-battery-three-quarters"></i>
+                        <span class="mx-2">
+                            Truy cập mọi lúc mọi nơi
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-8">
+            <h2>
+                {{course.name}}
+            </h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{course.videoId}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p>
+                {{course.description}}
+            </p>
+        </div>
+        
+    </div>
+</div>
