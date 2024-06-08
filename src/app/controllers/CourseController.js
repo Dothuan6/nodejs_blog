@@ -25,6 +25,26 @@ class CourseController {
       .then(() => res.redirect(`/courses/${course.slug}`))
       .catch(next);
   }
-  //get /news/:slug (slug là 1 biến động nhận các giá trị ngẫu nhiên
+  //get /courses/:id/edit
+  edit(req, res, next) {
+    const id = req.params.id;
+    Course.findById(id)
+      .then((course) =>
+        res.render("courses/edit", {
+          course: mongooseToObject(course),
+        })
+      )
+      .catch(next);
+  }
+
+  //put /courses/:id
+  update(req, res, next) {
+    const id = req.params.id;
+    const formData = req.body;
+    Course.updateOne({ _id: id }, formData)
+      .then(() => res.redirect("/me/stored/courses"))
+      .catch(next);
+  }
 }
 module.exports = new CourseController();
+//get /news/:slug (slug là 1 biến động nhận các giá trị ngẫu nhiên
