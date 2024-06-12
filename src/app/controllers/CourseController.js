@@ -45,6 +45,15 @@ class CourseController {
       .then(() => res.redirect("/me/stored/courses"))
       .catch(next);
   }
+  //delete /courses/:id
+  delete(req, res, next) {
+    const id = req.params.id;
+    Course.deleteOne({ _id: id })
+      .then(() => {
+        res.redirect("back");
+      })
+      .catch(next);
+  }
 }
 module.exports = new CourseController();
 //get /news/:slug (slug là 1 biến động nhận các giá trị ngẫu nhiên
