@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const slug = require("mongoose-slug-generator");
-mongoose.plugin(slug);
+const moongoseDelete = require("mongoose-delete");
 const Course = new Schema(
   {
     name: { type: String, required: true },
@@ -13,6 +13,11 @@ const Course = new Schema(
   },
   { timestamps: true }
 );
+mongoose.plugin(slug);
+Course.plugin(moongoseDelete, {
+  deletedAt: true,
+  overrideMethods: "all",
+});
 module.exports = mongoose.model("Course", Course);
 //mongoose tự đọc cái model này và tạo ra collection trong db
 //nếu có collection rồi nó tự convert sang số nhiều hoặc chữ thường để so sánh
