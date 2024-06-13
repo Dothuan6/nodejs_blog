@@ -7,7 +7,6 @@ const route = require("./routes");
 const methodOverride = require("method-override");
 
 const db = require("./config/db");
-
 //connect db
 
 const app = express();

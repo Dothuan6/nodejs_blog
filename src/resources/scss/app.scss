@@ -46,3 +46,7 @@ li{
     border-radius: 100%;
     margin-right: 4px;
 }
+.disabled {
+    pointer-events: none;
+    cursor: default;
+  }
