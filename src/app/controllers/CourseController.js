@@ -83,6 +83,26 @@ class CourseController {
         res.json({ message: "Action is invalid" });
     }
   }
+  handleFormActionsTrash(req, res, next) {
+    switch (req.body.action) {
+      case "restoreAll":
+        Course.restore({ _id: { $in: req.body.courseIds } })
+          .then(() => {
+            res.redirect("back");
+          })
+          .catch(next);
+        break;
+      case "deleteForceAll":
+        Course.deleteMany({ _id: { $in: req.body.courseIds } })
+          .then(() => {
+            res.redirect("back");
+          })
+          .catch(next);
+        break;
+      default:
+        res.json({ message: "Action is invalid" });
+    }
+  }
 }
 module.exports = new CourseController();
 //get /news/:slug (slug là 1 biến động nhận các giá trị ngẫu nhiên
