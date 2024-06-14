@@ -25,9 +25,16 @@
     <thead>
       <tr>
         <th scope="col" colspan="2">STT</th>
-        <th scope="col">Tên khóa học</th>
-        <th scope="col">Trình độ</th>
-        <th scope="col" colspan="2">Thời gian tạo</th>
+        <th scope="col">Tên khóa học
+          {{{sortAble 'name' _sort}}}
+        </th>
+        <th scope="col">Trình độ
+          {{{sortAble 'level' _sort}}}
+        </th>
+        <th scope="col" colspan="2">
+          Thời gian tạo
+          {{{sortAble 'createdAt' _sort}}}
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -105,42 +112,42 @@
       deleteForm.submit()
     }
     //checkbon all change
-    checkboxAll.change( function(){
+    checkboxAll.change(function () {
       var checked = $(this).prop('checked')
       CourseItemCheckbox.prop('checked', checked)
       renderCheckAllSubmitBtn()
     })
 
     //course item checkbox change
-    CourseItemCheckbox.change(function(){
+    CourseItemCheckbox.change(function () {
       var checkedAll = CourseItemCheckbox.length === $('input[name="courseIds[]"]:checked').length
       checkboxAll.prop('checked', checkedAll)
       renderCheckAllSubmitBtn()
     })
-    
+
     //check all submit button click
-    checkAllSubmitBtn.click(function(e){
+    checkAllSubmitBtn.click(function (e) {
       e.preventDefault()
-      var isSubmitable =  !$(this).hasClass('disabled')
-      if(isSubmitable){
+      var isSubmitable = !$(this).hasClass('disabled')
+      if (isSubmitable) {
         containerForm.submit()
       }
     });
     //check all submit button clicked
-    containerForm.on('submit',function(e){
+    containerForm.on('submit', function (e) {
       var checked = !checkAllSubmitBtn.hasClass('disabled')
-      if(!checked){
+      if (!checked) {
         e.preventDefault()
       }
     })
 
     //re-render check all submit button
-    function renderCheckAllSubmitBtn(){
+    function renderCheckAllSubmitBtn() {
       var checkedCount = $('input[name="courseIds[]"]:checked').length
-      if(checkedCount > 0){
-        checkAllSubmitBtn.attr('disabled',false)
-      }else{
-        checkAllSubmitBtn.attr('disabled',true)
+      if (checkedCount > 0) {
+        checkAllSubmitBtn.attr('disabled', false)
+      } else {
+        checkAllSubmitBtn.attr('disabled', true)
       }
     }
   })
