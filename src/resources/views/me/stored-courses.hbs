@@ -10,10 +10,6 @@
       </sup>
     </a>
     <div class="mb-2 mt-4 d-flex">
-      <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="checkbox-all">
-        <label class="custom-control-label" for="checkbox-all">Chọn tất cả</label>
-      </div>
       <select class="custom-select w-25 mx-2 custom-select-sm text-center" name="action" required>
         <option value="">------- CHỌN HÀNH ĐỘNG --------</option>
         <option value="delete">Xóa</option>
@@ -24,7 +20,12 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col" colspan="2">STT</th>
+        <th>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="checkbox-all">
+            <label class="custom-control-label" for="checkbox-all">Chọn tất cả</label>
+          </div>
+        </th>
         <th scope="col">Tên khóa học
           {{{sortAble 'name' _sort}}}
         </th>
@@ -45,7 +46,7 @@
             <input type="checkbox" name="courseIds[]" class="form-checkbox-input" value="{{this._id}}">
           </div>
         </th>
-        <th scope="row">{{sum @index 1}}</th>
+        <td>{{this._id}}</td>
         <td>{{this.name}}</td>
         <td>{{this.level}}</td>
         <td>{{this.createdAt}}</td>
